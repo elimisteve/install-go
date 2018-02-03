@@ -89,7 +89,9 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin' >> "$HOME/.bashrc"
 
-echo 'Success! Now open a new terminal or type
+# Only print this if this script is being run non-interactively
+if [ -z "$PS1" ]; then
+    echo 'Success! Now open a new terminal or type
 
     source ~/.bashrc
 
@@ -97,6 +99,7 @@ then run this to make sure it worked:
 
     go version
 '
+fi
 
 # Clean up
 rm "$dest"
