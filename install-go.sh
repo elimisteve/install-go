@@ -72,9 +72,6 @@ fi
 
 dest="/tmp/$filename"
 
-# Clean up from last time
-rm "$dest" || true
-
 echo "Downloading $filename ..."
 wget https://dl.google.com/go/$filename -O $dest
 
@@ -100,3 +97,6 @@ then run this to make sure it worked:
 
     go version
 '
+
+# Clean up
+rm "$dest"
