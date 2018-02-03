@@ -89,8 +89,8 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin' >> "$HOME/.bashrc"
 
-# Only print this if this script is being run non-interactively
-if [ -z "$PS1" ]; then
+# Only print this if this script is being run interactively
+if [ -n "$PS1" ]; then
     echo 'Success! Now open a new terminal or type
 
     source ~/.bashrc
