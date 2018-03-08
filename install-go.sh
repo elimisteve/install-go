@@ -37,6 +37,7 @@ filename=""
 
 arch="$(uname -m)"
 kernel="$(uname -s)"
+sourced_env_vars_file=".bashrc"
 
 if [ "${kernel}" == "Linux" ]; then
     case "${arch}" in
@@ -57,6 +58,7 @@ if [ "${kernel}" == "Linux" ]; then
             exit 1
     esac
 else  # Assume macOS
+    sourced_env_vars_file=".profile"
     case "${arch}" in
         "x86")
             filename="go${INSTALL_VERSION}.darwin-386.tar.gz"
@@ -87,13 +89,13 @@ echo '
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/gocode
-export PATH=$PATH:$GOPATH/bin' >> "$HOME/.bashrc"
+export PATH=$PATH:$GOPATH/bin' >> "$HOME/${sourced_env_vars_file}"
 
 # Only print this if this script is being run interactively
 if [ -n "$PS1" ]; then
     echo 'Success! Now open a new terminal or type
 
-    source ~/.bashrc
+    source ~/'${sourced_env_vars_file}'
 
 then run this to make sure it worked:
 
