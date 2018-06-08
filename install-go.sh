@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-INSTALL_VERSION="1.9.4"
+INSTALL_VERSION="1.10.3"
 
 usage() {
     echo "Usage: bash install-go.sh [ --version <go_version> | --help ]"
