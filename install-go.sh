@@ -50,7 +50,7 @@ if [ "${kernel}" == "Linux" ]; then
         "armv6l" | "armv7l")  # No armv7l version exists; use armv6l
             filename="go${INSTALL_VERSION}.linux-armv6l.tar.gz"
             ;;
-        "armv8l")
+        "armv8l" | "aarch64")
             filename="go${INSTALL_VERSION}.linux-arm64.tar.gz"
             ;;
         "*")
