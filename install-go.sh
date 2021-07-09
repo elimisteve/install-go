@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-INSTALL_VERSION="1.16.4"
+INSTALL_VERSION="1.16.5"
 
 usage() {
     echo "Usage: bash install-go.sh [ --version <go_version> | --help ]"
@@ -75,6 +75,7 @@ fi
 dest="/tmp/$filename"
 
 echo "Downloading $filename ..."
+# TODO(elimisteve): Default to curl, but use wget if curl is missing
 wget https://dl.google.com/go/$filename -O $dest
 
 if [ $? -ne 0 ]; then
